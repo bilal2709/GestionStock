@@ -59,11 +59,7 @@ Utilisation
 
 1. Lancer le serveur
 
-Exécutez l'API en mode développement avec nodemon :
-
-nodemon app.js
-
-Ou en mode classique :
+Exécutez l'API en mode développement avec node :
 
 node app.js
 
