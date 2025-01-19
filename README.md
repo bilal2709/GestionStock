@@ -26,7 +26,9 @@ Installation
 
 Clonez le projet depuis GitHub :
 
-git clone https://github.com/votre-utilisateur/gestion-stock.git
+git clone https://github.com/bilal2709/gestion-stock.git
+
+
 cd gestion-stock
 
 2. Installer les dépendances
