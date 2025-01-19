@@ -1,8 +1,8 @@
-# GestionStock
+# GestionStoc
 
-Gestion de Stock - README
+Système de Gestion de Stock - README
 
-Ce projet est un système de gestion de stock pour une petite entreprise de vente de maquettes d'avions en papier. Il permet de gérer les produits, les commandes, les clients, les catégories, et les fournisseurs via une API développée en Node.js.
+Ce projet est un système de gestion de stock pour une petite entreprise de vente de maquettes d'avions en papier. Il permet de gérer les produits, les commandes, les clients, les catégories, et les fournisseurs via une API RESTful développée en Node.js.
 
 Prérequis
 
@@ -10,7 +10,7 @@ Prérequis
 
 Node.js (version 14 ou supérieure) : https://nodejs.org/fr
 
-MySQL (version 5.7 ou supérieure) : Télécharger ici
+MySQL (version 5.7 ou supérieure) : https://dev.mysql.com/downloads/
 
 Postman ou un autre outil pour tester l'API (optionnel)
 
@@ -67,51 +67,31 @@ Le serveur sera disponible à l'adresse : http://localhost:3000.
 
 2. Tester les endpoints
 
-Utilisez Postman, cURL ou un navigateur pour tester les endpoints. Voici quelques exemples :
+Utilisez Postman, CURL ou un navigateur pour tester les endpoints. Voici quelques exemples :
 
-a) Récupérer tous les produits
+a) Lister les commandes par année
 
-Méthode HTTP : GET
+curl "http://localhost:3000/commandes?start=2025-01-01&end=2025-12-31"
 
-URL : http://localhost:3000/produits
+b) Rechercher les commandes d’un client
 
-b) Ajouter un produit
+curl "http://localhost:3000/clients/1/commandes"
 
-Méthode HTTP : POST
+c) Lister les commandes qui contiennent un article précis
 
-URL : http://localhost:3000/produits
+curl "http://localhost:3000/produits/1/commandes"
 
-Corps de la requête (JSON) :
+d) Recherche multi-critères (client, date, statut, produit...)
 
-{
-  "nom": "Avion Test",
-  "description": "Un avion en papier",
-  "prix_unitaire": 10.99,
-  "quantite_en_stock": 20,
-  "categorie_id": 1
-}
+curl "http://localhost:3000/recherche-commandes?client_id=1&date_min=2025-01-01&statut=en%20cours"
 
-c) Mettre à jour un produit
+e) Produits les plus vendus 
 
-Méthode HTTP : PUT
+curl "http://localhost:3000/statistiques/produits-plus-vendus"
 
-URL : http://localhost:3000/produits/:id
+d) Notifications de stock faible
 
-Corps de la requête (JSON) :
-
-{
-  "nom": "Avion Modifié",
-  "description": "Un avion modifié",
-  "prix_unitaire": 15.99,
-  "quantite_en_stock": 30,
-  "categorie_id": 1
-}
-
-d) Supprimer un produit
-
-Méthode HTTP : DELETE
-
-URL : http://localhost:3000/produits/:id
+curl "http://localhost:3000/produits/stock-faible?seuil=10"
 
 Structure du projet
 
@@ -133,6 +113,6 @@ Authentification : Implémenter un système d'utilisateur avec des rôles.
 
 Support
 
-Si vous rencontrez des problèmes, contactez [votre email] ou ouvrez une issue sur le dépôt GitHub.
+Si vous rencontrez des problèmes, contactez Bilal ou ouvrez une issue sur le dépôt GitHub.
 
 Merci d'utiliser le système de gestion de stock !
